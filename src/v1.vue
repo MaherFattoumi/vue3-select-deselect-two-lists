@@ -1,10 +1,10 @@
 <template>
   <div>
     <select v-model="selectedItemOne" @change="updateListTwo">
-      <option v-for="(item, index) in listOne" :value="item" :key="index">{{ item }}</option>
+      <option v-for="item in listOne" :value="item">{{ item }}</option>
     </select>
     <select v-model="selectedItemTwo" @change="updateListOne">
-      <option v-for="(item, index) in listTwo" :value="item" :key="index">{{ item }}</option>
+      <option v-for="item in listTwo" :value="item">{{ item }}</option>
     </select>
   </div>
 </template>
@@ -18,15 +18,17 @@ export default {
     const originalListTwo = ['B', 'D', 'E'];
     const listOne = ref([...originalListOne]);
     const listTwo = ref([...originalListTwo]);
-    const selectedItemOne = ref('A');
-    const selectedItemTwo = ref('B');
+    const selectedItemOne = ref('');
+    const selectedItemTwo = ref('');
 
     const updateListTwo = () => {
       listTwo.value = [...originalListTwo].filter(item => item !== selectedItemOne.value);
+      selectedItemTwo.value = listTwo.value.length > 0 ? listTwo.value[0] : '';
     };
 
     const updateListOne = () => {
       listOne.value = [...originalListOne].filter(item => item !== selectedItemTwo.value);
+      selectedItemOne.value = listOne.value.length > 0 ? listOne.value[0] : '';
     };
 
     watch(selectedItemOne, () => {
@@ -36,6 +38,10 @@ export default {
     watch(selectedItemTwo, () => {
       updateListOne();
     });
+
+    // Initialisation des sélections par défaut
+    updateListTwo();
+    updateListOne();
 
     return {
       listOne,
