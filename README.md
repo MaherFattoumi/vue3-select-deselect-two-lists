@@ -1,1 +1,3 @@
-# vue_select_deselect_two_lists
+# vue3-select-deselect-two-lists
+* npm install
+* npm run serve

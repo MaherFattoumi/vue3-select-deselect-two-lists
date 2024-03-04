@@ -1,0 +1,36 @@
+{
+  "name": "autocomplete",
+  "version": "1.0.0",
+  "description": "A simple and lightweight autocomplete Vue3 component",
+  "author": "Maher Fattoumi",
+  "license": "MIT",
+  "keywords": [
+    "autocomplete",
+    "autosuggest",
+    "vue-autocomplete",
+    "v-autocomplete",
+    "vue3",
+    "vue3js",
+    "vuejs3"
+  ],
+  "files": [
+    "src/**/*.vue",
+    "README.md"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "scripts": {
+    "serve": "vue-cli-service serve dev/serve.js"
+  },
+  "devDependencies": {
+    "@vue/cli-service": "^5.0.8",
+    "vue": "^3.2.47"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.47"
+  },
+  "engines": {
+    "node": ">=12"
+  }
+}
